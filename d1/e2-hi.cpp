@@ -1,6 +1,6 @@
 #include <iostream>
 // Write a program that reads a string (say name) from the command line prints
-// ”Hello name!”. For example, if you run the program and type ”buddy” the 
+// ”Hello name!”. For example, if you run the program and type ”buddy” the
 // program should print ”Hello buddy!”
 
 using namespace std;
