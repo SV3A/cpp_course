@@ -32,7 +32,7 @@ char character(material type){
     case space:
       return ' ';
     case wall:
-      return '#';
+      return '*';
     case player:
       return 'O';
     default:
@@ -41,7 +41,7 @@ char character(material type){
 }
 
 
-// printing the playground
+// Prints the playground
 void print_playground() {
   for (int i = 0; i < n; i++){
     for (int j = 0; j < m; j++){
@@ -54,7 +54,7 @@ void print_playground() {
 
 int main(int argc, char *argv[]) {
   bool quit = false;
-  char gamectrl[1] = {'z'};
+  char gamectrl;
 
   while (!quit) {
     // Define playground and print it
@@ -74,23 +74,28 @@ int main(int argc, char *argv[]) {
           playground [i][j].type = space;
       }
     }
-
     print_playground();
 
     // Get user input
     cin >> gamectrl;
-
-    if ( gamectrl[0] == 'q' )
-      quit = true;
-    else if ( gamectrl[0] == 'r' )
-      x ++;
-    else if ( gamectrl[0] == 'l' )
-      x --;
-    else if ( gamectrl[0] == 'u' )
-      y --;
-    else if ( gamectrl[0] == 'd' )
-      y ++;
-    else
-      cout << "Unknown input" << endl;
+    switch(gamectrl){
+      case 'q':
+        quit = true;
+        break;
+      case 'r':
+        if (playground[y-1][x].isWall == false) x ++;
+        break;
+      case 'l':
+        if (playground[y-1][x-2].isWall == false) x --;
+        break;
+      case 'u':
+        if (playground[y-2][x-1].isWall == false) y --;
+        break;
+      case 'd':
+        if (playground[y][x-1].isWall == false) y ++;
+        break;
+      default:
+        cout << "Unknown input" << endl;
+    }
   }
 }
