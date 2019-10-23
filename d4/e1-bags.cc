@@ -1,5 +1,8 @@
 #include <iostream>
 #include <set>
+// Bag program 1
+// Implements a "number bag" which can store unique integers.  The bag is
+// implemented with both arrays and sets (chosen via the CONTAINER variable).
 
 using namespace std;
 

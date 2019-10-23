@@ -1,5 +1,9 @@
 #include <iostream>
 #include <set>
+// Bag program 2
+// Implements a "number bag" which stores integers (with repetitions allowed).
+// The bag is implemented with both arrays and multisets (chosen via the
+// CONTAINER variable).
 
 using namespace std;
 
