@@ -93,22 +93,30 @@ public:
       numerator   = 1;
       denominator = 1;
     } else {
-      // Determine greatest common divisor using Euclid's algorithm
-      int remainder, gcd = 1;
+      int r, gcd = 1;
+
+      // Reorder fraction so that numerator is biggest
       int a = std::max(numerator, denominator);
       int b = std::min(numerator, denominator);
 
-      remainder = a % b;
+      // Determine greatest common divisor using Euclid's algorithm
+      r = a % b;
       gcd = b; // Special case if remainder is 0 initially
 
-      while (remainder != 0) {
-        gcd = remainder;
-        remainder = b%remainder;
-        b = remainder;
+      while (r != 0) {
+        gcd = r;
+        r = b%r;
+        b = gcd;
       }
 
       numerator   = numerator/gcd;
       denominator = denominator/gcd;
+    }
+
+    // Place sign in the numerator
+    if (denominator < 0) {
+      numerator   = - numerator;
+      denominator = - denominator;
     }
   }
 };
